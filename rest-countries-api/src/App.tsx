@@ -3,7 +3,7 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <main className="flex flex-col justify-center">
+    <main className="flex flex-col justify-center dark:bg-bgDark">
       <Header />
       <CountryList />
     </main>

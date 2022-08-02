@@ -19,3 +19,5 @@ export const toggleDarkMode = () => {
     }
   }
 };
+
+export const getCurrentMode = () => localStorage.getItem("color-theme");

@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import React from "react";
 import Countries from "../../data.json";
 import SearchIcon from "../../public/search.svg";
+import SearchIconDark from "../../public/searchDark.svg";
 
 const FilterAndSearch = ({
   countries,
@@ -23,14 +24,19 @@ const FilterAndSearch = ({
     <div className="flex flex-col md:flex-row justify-between py-[48px]">
       <div className="max-w-[480px] w-full">
         <input
-          className="shadow-md h-[56px] w-full rounded pl-[68px]"
+          className="shadow-md h-[56px] w-full rounded pl-[68px] dark:bg-primaryDark placeholder:dark:text-white"
           placeholder="Search for a country..."
           type="text"
           onChange={(e) => filterCountries(e)}
         />
         <img
           src={SearchIcon}
-          className="h-[18px] relative -top-9 left-8 select-none"
+          className="h-[18px] relative -top-9 left-8 select-non dark:hidden"
+          alt="Search Icon"
+        />
+        <img
+          src={SearchIconDark}
+          className="h-[18px] relative -top-9 left-8 select-non dark:visible"
           alt="Search Icon"
         />
       </div>

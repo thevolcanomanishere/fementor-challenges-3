@@ -23,18 +23,18 @@ const CountryList = () => {
   };
 
   return (
-    <div className="flex flex-col h-full px-10 md:px-[80px]">
+    <div className="flex flex-col h-full px-10 md:px-[95px]">
       <div>
         <FilterAndSearch
           countries={countries}
           setCountries={setFilteredCountries}
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 self-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 self-center">
         {filteredCountries &&
           filteredCountries.map((country) => (
             <div
-              className="flex flex-col shadow-md rounded-b-md w-[264px] h-[336px]"
+              className="flex flex-col shadow-md rounded-t-md rounded-b-md w-[264px] h-[336px] dark:bg-primaryDark dark:text-white"
               key={country.name.official}
             >
               <img
