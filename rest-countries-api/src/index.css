@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Nunito Sans";
+  }
+}
+
+/* body {
+  background-image: url("../public/waves.svg");
+} */
+/* 
+### Primary
+
+- Soft red: hsl(10, 79%, 65%)
+- Cyan: hsl(186, 34%, 60%)
+
+### Neutral
+
+- Dark brown: hsl(25, 47%, 15%)
+- Medium brown: hsl(28, 10%, 53%)
+- Cream: hsl(27, 66%, 92%)
+- Very pale orange: hsl(33, 100%, 98%) */
