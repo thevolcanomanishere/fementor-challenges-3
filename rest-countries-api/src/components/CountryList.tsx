@@ -12,8 +12,14 @@ const CountryList = () => {
   const [selectedCountry, setSelectedCountry] = useState<
     typeof Countries[number] | false
   >(false);
-  const [animationParent] = useAutoAnimate();
-  const [animationItems] = useAutoAnimate();
+  const [animationParent] = useAutoAnimate({
+    easing: "ease-out",
+    duration: 500,
+  });
+  const [animationItems] = useAutoAnimate({
+    duration: 500,
+    easing: "ease-out",
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
