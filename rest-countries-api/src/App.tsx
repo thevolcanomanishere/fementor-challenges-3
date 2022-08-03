@@ -1,5 +1,7 @@
 import CountryList from "./components/CountryList";
 import Header from "./components/Header";
+import { setUserModeOnLoad } from "./utils/DarkMode";
+setUserModeOnLoad();
 
 const App = () => {
   return (

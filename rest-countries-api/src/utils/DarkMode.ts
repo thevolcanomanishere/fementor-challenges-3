@@ -24,4 +24,16 @@ export const toggleDarkMode = () => {
   }
 };
 
+export const setUserModeOnLoad = () => {
+  if (localStorage.getItem("color-theme")) {
+    if (localStorage.getItem("color-theme") === "dark") {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("bg-primaryDark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.body.classList.remove("bg-bgDark");
+    }
+  }
+};
+
 export const getCurrentMode = () => localStorage.getItem("color-theme");
