@@ -9,7 +9,7 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(currentMode);
 
   return (
-    <header className="flex h-[80px] border-b w-full bg-white dark:bg-primaryDark shadow-md">
+    <header className="flex h-[80px] border-b w-full dark:border-[#2B3844] dark:bg-primaryDark shadow-md">
       <div className="flex flex-row w-full h-full justify-between py-[23px] sm:pl-[81px]">
         <h1 className="text-black dark:text-white w-full pl-2 font-[900] text-[14px] sm:text-[18px] md:text-[24px] min-w-[135px]">
           Where in the world?

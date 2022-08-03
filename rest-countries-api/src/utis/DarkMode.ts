@@ -14,11 +14,11 @@ export const toggleDarkMode = () => {
   } else {
     if (document.documentElement.classList.contains("dark")) {
       document.documentElement.classList.remove("dark");
-      document.body.classList.remove("bg-bgDark");
+      document.body.classList.remove("bg-primaryDark");
       localStorage.setItem("color-theme", "light");
     } else {
       document.documentElement.classList.add("dark");
-      document.body.classList.add("bg-bgDark");
+      document.body.classList.add("bg-primaryDark");
       localStorage.setItem("color-theme", "dark");
     }
   }

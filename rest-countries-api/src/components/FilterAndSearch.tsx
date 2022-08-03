@@ -36,7 +36,7 @@ const FilterAndSearch = ({
         />
         <img
           src={SearchIconDark}
-          className="h-[18px] relative -top-9 left-8 select-non dark:visible"
+          className="h-[18px] relative -top-9 left-8 select-non hidden dark:block"
           alt="Search Icon"
         />
       </div>
