@@ -14,7 +14,7 @@ const CountryList = () => {
       );
       setCountries(sorted);
       setFilteredCountries(sorted);
-    }, 1000);
+    }, 1);
     return () => clearTimeout(timer);
   }, []);
 

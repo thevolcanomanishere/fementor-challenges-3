@@ -23,7 +23,7 @@ const Header = () => {
                 toggleDarkMode();
               }}
             >
-              <div className="flex flex-row space-x-3">
+              <div className="flex flex-row space-x-3 select-none">
                 <img className="h-4 w-4 mt-1" src={DarkMode} alt="Dark mode" />
                 <span>Dark Mode</span>
               </div>
@@ -38,7 +38,7 @@ const Header = () => {
                 toggleDarkMode();
               }}
             >
-              <div className="flex flex-row space-x-3">
+              <div className="flex flex-row space-x-3 select-none">
                 <img className="h-4 w-4 mt-1" src={LightMode} alt="Dark mode" />
                 <span>Dark Mode</span>
               </div>

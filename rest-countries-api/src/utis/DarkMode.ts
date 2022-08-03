@@ -2,9 +2,11 @@ export const toggleDarkMode = () => {
   if (localStorage.getItem("color-theme")) {
     if (localStorage.getItem("color-theme") === "light") {
       document.documentElement.classList.add("dark");
+      document.body.classList.add("bg-bgDark");
       localStorage.setItem("color-theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      document.body.classList.remove("bg-bgDark");
       localStorage.setItem("color-theme", "light");
     }
 
@@ -12,9 +14,11 @@ export const toggleDarkMode = () => {
   } else {
     if (document.documentElement.classList.contains("dark")) {
       document.documentElement.classList.remove("dark");
+      document.body.classList.remove("bg-bgDark");
       localStorage.setItem("color-theme", "light");
     } else {
       document.documentElement.classList.add("dark");
+      document.body.classList.add("bg-bgDark");
       localStorage.setItem("color-theme", "dark");
     }
   }
