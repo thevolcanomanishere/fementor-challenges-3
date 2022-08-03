@@ -33,7 +33,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-children")],
   variants: {
     extend: {
       display: ["group-hover"],

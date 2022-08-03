@@ -58,45 +58,57 @@ const CountryDetail = ({
   };
 
   return (
-    <div className="flex flex-row justify-start space-x-20">
+    <div className="flex flex-row justify-start space-x-20 mt-[80px]">
       <div className="flex flex-col space-y-10 w-1/2 self-start">
         <button
           onClick={() => clear(false)}
           className="flex flex-row space-x-2 "
         >
-          <img src={BackLight} alt="Back" />
-          <span>Back</span>
+          <img className="dark:hidden" src={BackLight} alt="Back" />
+          <img className="hidden dark:block" src={BackDark} alt="Back" />
+          <span className="dark:text-white">Back</span>
         </button>
         <img src={country.flags.svg} alt={country.name.official} />
       </div>
-      <div className="w-1/2">
-        <h1 className="font-extrabold text-2xl">{country.name.official}</h1>
-        <div className="flex flex-row w-full">
-          <div className="flex flex-col w-1/2">
-            <span>
-              Native name:<span>{renderNames()}</span>
-            </span>
-            <span>Population: {addThoudsandSeparator(country.population)}</span>
-            <span>Region: {country.region}</span>
-            <span>Sub Region: {country.subregion}</span>
-            <span>Capital: {country.capital}</span>
+      <div className="flex flex-col w-1/2 justify-center dark:text-white">
+        <div className="flex flex-col space-y-10">
+          <h1 className="font-extrabold text-2xl">{country.name.official}</h1>
+          <div className="flex flex-row w-full">
+            <div className="flex flex-col w-1/2">
+              <span>
+                <span className="font-[400]">Native name:</span>
+                <span className="font-[300]">{renderNames()}</span>
+              </span>
+              <span>
+                <span className="font-[400]">Population:</span>{" "}
+                {addThoudsandSeparator(country.population)}
+              </span>
+              <span>
+                <span className="font-[400]">Region:</span> {country.region}
+              </span>
+              <span>
+                <span className="font-[400]">Sub Region:</span>{" "}
+                {country.subregion}
+              </span>
+              <span>Capital: {country.capital}</span>
+            </div>
+            <div className="flex flex-col w-1/2">
+              {country.tld && (
+                <span>Top Level Domain: {country.tld.join(", ")}</span>
+              )}
+              {country.currencies && (
+                <span>Currencies: {renderCurrencies()}</span>
+              )}
+              {country.languages && <span>Languages: {renderLanguages()}</span>}
+            </div>
           </div>
-          <div className="flex flex-col w-1/2">
-            {country.tld && (
-              <span>Top Level Domain: {country.tld.join(", ")}</span>
-            )}
-            {country.currencies && (
-              <span>Currencies: {renderCurrencies()}</span>
-            )}
-            {country.languages && <span>Languages: {renderLanguages()}</span>}
-          </div>
+          {country.borders && (
+            <div className="flex flex-row">
+              <span>Border Countries: </span>
+              {renderBorders()}
+            </div>
+          )}
         </div>
-        {country.borders && (
-          <div className="flex flex-row">
-            <span>Border Countries: </span>
-            {renderBorders()}
-          </div>
-        )}
       </div>
     </div>
   );
