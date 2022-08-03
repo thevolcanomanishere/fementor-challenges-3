@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toggleDarkMode } from "../utis/DarkMode";
+import { toggleDarkMode } from "../utils/DarkMode";
 import DarkMode from "../../public/darkMode.svg";
 import LightMode from "../../public/lightMode.svg";
 

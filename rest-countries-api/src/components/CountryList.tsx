@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Countries from "../../data.json";
+import CountryDetail from "./CountryDetail";
 import FilterAndSearch from "./FilterAndSearch";
+import { addThoudsandSeparator } from "../utils";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const CountryList = () => {
   const [countries, setCountries] = useState<typeof Countries>([]);
   const [filteredCountries, setFilteredCountries] =
     useState<typeof Countries>();
+  const [selectedCountry, setSelectedCountry] = useState<
+    typeof Countries[number] | false
+  >(false);
+  const [animationParent] = useAutoAnimate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,22 +25,29 @@ const CountryList = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const addThoudsandSeparator = (num: number) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
   return (
-    <div className="flex flex-col h-full px-10 md:px-[95px]">
-      <div>
-        <FilterAndSearch
-          countries={countries}
-          setCountries={setFilteredCountries}
-        />
-      </div>
+    <div
+      // @ts-ignore
+      ref={animationParent}
+      className="flex flex-col h-full px-10 md:px-[95px]"
+    >
+      {selectedCountry ? (
+        <CountryDetail country={selectedCountry} clear={setSelectedCountry} />
+      ) : (
+        <div>
+          <FilterAndSearch
+            countries={countries}
+            setCountries={setFilteredCountries}
+          />
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 self-center">
-        {filteredCountries &&
+        {!selectedCountry &&
+          filteredCountries &&
           filteredCountries.map((country) => (
             <div
+              onClick={() => setSelectedCountry(country)}
               className="flex flex-col shadow-md rounded-t-md rounded-b-md w-[264px] h-[336px] dark:bg-primaryDark dark:text-white"
               key={country.name.official}
             >
