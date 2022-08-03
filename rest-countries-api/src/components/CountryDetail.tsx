@@ -68,7 +68,11 @@ const CountryDetail = ({
           <img className="hidden dark:block" src={BackDark} alt="Back" />
           <span className="dark:text-white">Back</span>
         </button>
-        <img src={country.flags.svg} alt={country.name.official} />
+        <img
+          className="max-h-[401px]"
+          src={country.flags.svg}
+          alt={country.name.official}
+        />
       </div>
       <div className="flex flex-col w-1/2 justify-center dark:text-white">
         <div className="flex flex-col space-y-10">
