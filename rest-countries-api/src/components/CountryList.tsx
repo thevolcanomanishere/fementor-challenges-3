@@ -13,6 +13,7 @@ const CountryList = () => {
     typeof Countries[number] | false
   >(false);
   const [animationParent] = useAutoAnimate();
+  const [animationItems] = useAutoAnimate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,7 +43,11 @@ const CountryList = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 self-center">
+      <div
+        // @ts-ignore
+        ref={animationItems}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 self-center"
+      >
         {!selectedCountry &&
           filteredCountries &&
           filteredCountries.map((country) => (

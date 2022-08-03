@@ -28,7 +28,7 @@ export const setUserModeOnLoad = () => {
   if (localStorage.getItem("color-theme")) {
     if (localStorage.getItem("color-theme") === "dark") {
       document.documentElement.classList.add("dark");
-      document.body.classList.add("bg-primaryDark");
+      document.body.classList.add("bg-bgDark");
     } else {
       document.documentElement.classList.remove("dark");
       document.body.classList.remove("bg-bgDark");
