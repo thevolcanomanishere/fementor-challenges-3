@@ -32,6 +32,6 @@ _Tech_: React, Tailwind, Vite
 
 ![Order](/screenshots/order-min.png)
 
-6. <a href="https://rest-countries-api-mu-mauve.vercel.app/" target="_blank">REST Countries API</a>
+6. <a href="https://rest-countries-api-mu-mauve.vercel.app/" target="_blank">REST Countries API (WIP)</a>
 
 ![Order](/screenshots/rest.png)
