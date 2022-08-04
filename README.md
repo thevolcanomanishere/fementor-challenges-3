@@ -6,7 +6,6 @@ Check out my Frontend Mentor profile here -> [Profile](https://www.frontendmento
 
 [Completed Challenges 2](https://github.com/thevolcanomanishere/fementor-challenges-2)
 
-
 _Tech_: React, Tailwind, Vite
 
 1. <a href="https://fementor-product-preview-parfume.vercel.app/" target="_blank">Product preview parfume</a>
@@ -32,3 +31,7 @@ _Tech_: React, Tailwind, Vite
 6. <a href="https://order-summary-component-69.vercel.app/" target="_blank">Order summary component</a>
 
 ![Order](/screenshots/order-min.png)
+
+6. <a href="https://rest-countries-api-mu-mauve.vercel.app/" target="_blank">REST Countries API</a>
+
+![Order](/screenshots/rest.png)
