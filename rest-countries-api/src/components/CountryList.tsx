@@ -13,8 +13,8 @@ const CountryList = () => {
     typeof Countries[number] | false
   >(false);
   const [animationParent] = useAutoAnimate({
+    duration: 250,
     easing: "ease-out",
-    duration: 500,
   });
   const [animationItems] = useAutoAnimate({
     duration: 500,

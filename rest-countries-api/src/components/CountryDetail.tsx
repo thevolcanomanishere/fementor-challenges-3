@@ -58,8 +58,8 @@ const CountryDetail = ({
   };
 
   return (
-    <div className="flex flex-row justify-start space-x-20 mt-[80px]">
-      <div className="flex flex-col space-y-10 w-1/2 self-start">
+    <div className="flex flex-col md:flex-row justify-center md:justify-start space-x-20 mt-[80px]">
+      <div className="flex flex-col space-y-10 md:w-1/2 md:self-start">
         <button
           onClick={() => clear(false)}
           className="flex flex-row space-x-2 "
@@ -69,7 +69,7 @@ const CountryDetail = ({
           <span className="dark:text-white">Back</span>
         </button>
         <img
-          className="max-h-[401px]"
+          className="max-h-[229px] md:max-h-[401px]"
           src={country.flags.svg}
           alt={country.name.official}
         />
@@ -77,7 +77,7 @@ const CountryDetail = ({
       <div className="flex flex-col w-1/2 justify-center dark:text-white">
         <div className="flex flex-col space-y-10">
           <h1 className="font-extrabold text-2xl">{country.name.official}</h1>
-          <div className="flex flex-row w-full">
+          <div className="flex flex-col  md:flex-row w-full">
             <div className="flex flex-col w-1/2">
               <span>
                 <span className="font-[400]">Native name:</span>
