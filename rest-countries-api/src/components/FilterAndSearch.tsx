@@ -23,7 +23,8 @@ const FilterAndSearch = ({
     useState<string>("Filter by Region");
 
   useEffect(() => {
-    if (dropDownRegion === "All") return;
+    if (dropDownRegion === "All" || dropDownRegion === "Filter by Region")
+      return;
     const region = countries.filter(
       (country) => country.region === dropDownRegion
     );
