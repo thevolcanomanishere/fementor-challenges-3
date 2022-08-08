@@ -1,5 +1,5 @@
-import { Menu } from "@headlessui/react";
-import React from "react";
+import { Menu, Transition } from "@headlessui/react";
+import React, { Fragment, useEffect, useState } from "react";
 import Countries from "../../data.json";
 import SearchIcon from "../../public/search.svg";
 import SearchIconDark from "../../public/searchDark.svg";
@@ -19,10 +19,32 @@ const FilterAndSearch = ({
     });
     setCountries(filteredCountries);
   };
+  const [dropDownRegion, setDropDownRegion] =
+    useState<string>("Filter by Region");
+
+  useEffect(() => {
+    const region = countries.filter(
+      (country) => country.region === dropDownRegion
+    );
+    setCountries(region);
+  }, [dropDownRegion]);
+
+  const renderRegionOptions = () => {
+    const regions = [
+      ...new Set(countries.map((country) => country.region).sort()),
+    ];
+    return regions.map((region) => (
+      <Menu.Item>
+        <button className="text-left" onClick={() => setDropDownRegion(region)}>
+          {region}
+        </button>
+      </Menu.Item>
+    ));
+  };
 
   return (
     <div className="flex flex-col md:flex-row justify-between py-[48px]">
-      <div className="max-w-[480px] w-full">
+      <div className="max-w-[480px] w-full mr-4">
         <input
           className="shadow-md h-[56px] w-full rounded pl-[68px] dark:text-white dark:bg-primaryDark placeholder:dark:text-white"
           placeholder="Search for a country..."
@@ -40,37 +62,50 @@ const FilterAndSearch = ({
           alt="Search Icon"
         />
       </div>
-      {/* <h1>Hello</h1> */}
-      {/* <div>
-        <Menu>
-          <Menu.Button>More</Menu.Button>
-          <Menu.Items>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && "bg-blue-500"}`}
-                  href="/account-settings"
-                >
-                  Account settings
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && "bg-blue-500"}`}
-                  href="/account-settings"
-                >
-                  Documentation
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item disabled>
-              <span className="opacity-75">Invite a friend (coming soon!)</span>
-            </Menu.Item>
-          </Menu.Items>
+      <div>
+        <Menu
+          as="div"
+          className="inline-block p-4 bg-primaryDark rounded min-w-[200px] relative h-14"
+        >
+          <Menu.Button className="flex flex-row justify-between text-white rounded text-center w-full h-full z-100">
+            <span>{dropDownRegion}</span>
+            <svg
+              className="ml-4 mt-2"
+              width="10"
+              height="7"
+              viewBox="0 0 10 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.45 1.45L5 4.9L1.55 1.45L0.5 2.5L5 7L9.5 2.5L8.45 1.45Z"
+                fill="white"
+              />
+            </svg>
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute origin-center right-0 mt-[19px] bg-primaryDark text-white flex flex-col px-5 py-3 space-y-3 min-w-[200px] z-50 rounded">
+              {/* <Menu.Item>{({ active }) => <p>Africa</p>}</Menu.Item>
+              <Menu.Item>{({ active }) => <p>America</p>}</Menu.Item>
+              <Menu.Item>{({ active }) => <p>Asia</p>}</Menu.Item>
+              <Menu.Item>{({ active }) => <p>Europe</p>}</Menu.Item>
+              <Menu.Item>{({ active }) => <p>Oceania</p>}</Menu.Item> */}
+
+              {renderRegionOptions()}
+            </Menu.Items>
+          </Transition>
         </Menu>
-      </div> */}
+      </div>
     </div>
   );
 };
