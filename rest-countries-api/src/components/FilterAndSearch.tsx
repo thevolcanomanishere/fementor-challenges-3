@@ -23,6 +23,7 @@ const FilterAndSearch = ({
     useState<string>("Filter by Region");
 
   useEffect(() => {
+    if (dropDownRegion === "All") return;
     const region = countries.filter(
       (country) => country.region === dropDownRegion
     );
@@ -99,7 +100,17 @@ const FilterAndSearch = ({
               <Menu.Item>{({ active }) => <p>Asia</p>}</Menu.Item>
               <Menu.Item>{({ active }) => <p>Europe</p>}</Menu.Item>
               <Menu.Item>{({ active }) => <p>Oceania</p>}</Menu.Item> */}
-
+              <Menu.Item>
+                <button
+                  className="text-left"
+                  onClick={() => {
+                    setCountries(countries);
+                    setDropDownRegion("All");
+                  }}
+                >
+                  All
+                </button>
+              </Menu.Item>
               {renderRegionOptions()}
             </Menu.Items>
           </Transition>
