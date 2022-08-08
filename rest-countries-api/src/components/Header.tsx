@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="flex h-[80px] border-b w-full dark:border-[#2B3844] dark:bg-primaryDark shadow-md">
       <div className="flex flex-row w-full h-full justify-between py-[23px] sm:pl-[81px]">
-        <h1 className="text-black dark:text-white w-full pl-2 font-[900] text-[14px] sm:text-[18px] md:text-[24px] min-w-[135px]">
+        <h1 className="text-black dark:text-white w-full pl-2 font-[900] text-[14px] ml-3 sm:text-[18px] md:text-[24px] min-w-[135px]">
           Where in the world?
         </h1>
         {isDarkMode ? (
