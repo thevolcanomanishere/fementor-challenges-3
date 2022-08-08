@@ -77,7 +77,6 @@ const CountryList = () => {
                 </p>
                 <p>
                   <span className="font-[600]">Region:</span> {country.region}
-                  <p></p>
                   <span className="font-[600]">Capital:</span> {country.capital}
                 </p>
               </div>
