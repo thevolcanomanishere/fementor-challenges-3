@@ -125,7 +125,9 @@ const CountryDetail = ({
               <span className="font-semibold justify-start">
                 Border Countries:
               </span>
-              <div className="flex justify-start">{renderBorders()}</div>
+              <div className="flex flex-row flex-wrap gap-4 justify-start">
+                {renderBorders()}
+              </div>
             </div>
           )}
         </div>
