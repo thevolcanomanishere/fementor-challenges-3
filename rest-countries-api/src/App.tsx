@@ -5,7 +5,7 @@ setUserModeOnLoad();
 
 const App = () => {
   return (
-    <main className="flex flex-col justify-center bg-white dark:bg-bgDark">
+    <main className="flex flex-col justify-center bg-white dark:bg-bgDark mb-16">
       <Header />
       <CountryList />
     </main>
