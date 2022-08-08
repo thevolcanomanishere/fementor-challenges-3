@@ -65,12 +65,12 @@ const FilterAndSearch = ({
       <div>
         <Menu
           as="div"
-          className="inline-block p-4 bg-primaryDark rounded min-w-[200px] relative h-14"
+          className="inline-block p-4 dark:bg-primaryDark rounded min-w-[200px] relative h-14  shadow"
         >
-          <Menu.Button className="flex flex-row justify-between text-white rounded text-center w-full h-full z-100">
+          <Menu.Button className="flex flex-row justify-between dark:text-white rounded text-center w-full h-full z-100">
             <span>{dropDownRegion}</span>
             <svg
-              className="ml-4 mt-2"
+              className="ml-4 mt-2 fill-black dark:fill-white"
               width="10"
               height="7"
               viewBox="0 0 10 7"
@@ -81,7 +81,6 @@ const FilterAndSearch = ({
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M8.45 1.45L5 4.9L1.55 1.45L0.5 2.5L5 7L9.5 2.5L8.45 1.45Z"
-                fill="white"
               />
             </svg>
           </Menu.Button>
@@ -94,7 +93,7 @@ const FilterAndSearch = ({
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute origin-center right-0 mt-[19px] bg-primaryDark text-white flex flex-col px-5 py-3 space-y-3 min-w-[200px] z-50 rounded">
+            <Menu.Items className="absolute origin-center right-0 mt-[19px] bg-white dark:bg-primaryDark dark:text-white flex flex-col px-5 py-3 space-y-3 min-w-[200px] z-50 rounded shadow">
               {/* <Menu.Item>{({ active }) => <p>Africa</p>}</Menu.Item>
               <Menu.Item>{({ active }) => <p>America</p>}</Menu.Item>
               <Menu.Item>{({ active }) => <p>Asia</p>}</Menu.Item>
