@@ -69,7 +69,7 @@ const CountryDetail = ({
           <span className="dark:text-white">Back</span>
         </button>
         <img
-          className="max-h-[229px] md:max-h-[401px]"
+          className="max-h-[229px] md:max-h-[401px] object-contain"
           src={country.flags.svg}
           alt={country.name.official}
         />

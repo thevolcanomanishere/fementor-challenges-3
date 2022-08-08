@@ -63,7 +63,7 @@ const CountryList = () => {
               key={country.name.official}
             >
               <img
-                className="max-h-[160px] h-full w-full mx-auto rounded-t-md"
+                className="max-h-[160px] h-full w-full mx-auto rounded-t-md object-contain"
                 src={country.flags.svg}
                 alt={`${country.name.official} flag`}
               />
