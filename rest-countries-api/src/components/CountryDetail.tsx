@@ -51,14 +51,14 @@ const CountryDetail = ({
       if (country) return country.name.common;
     });
     return countries.map((country) => (
-      <div className="px-2 py-1 shadow min-w-[96px] max-h-[28px] text-center text-sm">
+      <div className="px-2 py-1 my-auto min-w-[96px] max-h-[28px] text-center text-sm shadow dark:bg-primaryDark rounded mr-4">
         {country}
       </div>
     ));
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center md:justify-start space-x-20 mt-[80px]">
+    <div className="flex flex-col md:flex-row justify-center md:justify-start md:space-x-20 mt-[80px]">
       <div className="flex flex-col space-y-10 md:w-1/2 md:self-start">
         <button
           onClick={() => clear(false)}
@@ -74,42 +74,58 @@ const CountryDetail = ({
           alt={country.name.official}
         />
       </div>
-      <div className="flex flex-col w-1/2 justify-center dark:text-white">
+      <div className="flex flex-col mt-10 md:mt-0 md:w-1/2 justify-center dark:text-white">
         <div className="flex flex-col space-y-10">
           <h1 className="font-extrabold text-2xl">{country.name.official}</h1>
           <div className="flex flex-col  md:flex-row w-full">
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col md:w-1/2">
               <span>
-                <span className="font-[400]">Native name:</span>
-                <span className="font-[300]">{renderNames()}</span>
+                <span className="font-semibold">Native name:</span>
+                <span className="font-extralight">{renderNames()}</span>
               </span>
               <span>
-                <span className="font-[400]">Population:</span>{" "}
+                <span className="font-semibold">Population:</span>{" "}
                 {addThoudsandSeparator(country.population)}
               </span>
               <span>
-                <span className="font-[400]">Region:</span> {country.region}
+                <span className="font-semibold">Region:</span> {country.region}
               </span>
               <span>
-                <span className="font-[400]">Sub Region:</span>{" "}
+                <span className="font-semibold">Sub Region:</span>{" "}
                 {country.subregion}
               </span>
-              <span>Capital: {country.capital}</span>
+              <span>
+                <span className="font-semibold">Capital:</span>{" "}
+                {country.capital}
+              </span>
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col md:w-1/2">
               {country.tld && (
-                <span>Top Level Domain: {country.tld.join(", ")}</span>
+                <span>
+                  <span className="font-semibold">Top Level Domain:</span>{" "}
+                  {country.tld.join(", ")}
+                </span>
               )}
               {country.currencies && (
-                <span>Currencies: {renderCurrencies()}</span>
+                <span>
+                  <span className="font-semibold">Currencies:</span>{" "}
+                  {renderCurrencies()}
+                </span>
               )}
-              {country.languages && <span>Languages: {renderLanguages()}</span>}
+              {country.languages && (
+                <span>
+                  <span className="font-semibold">Languages:</span>{" "}
+                  {renderLanguages()}
+                </span>
+              )}
             </div>
           </div>
           {country.borders && (
-            <div className="flex flex-row">
-              <span>Border Countries: </span>
-              {renderBorders()}
+            <div className="flex flex-col md:flex-row space-x-2 space-y-2 md:space-y-0">
+              <span className="font-semibold justify-start">
+                Border Countries:
+              </span>
+              <div className="flex justify-start">{renderBorders()}</div>
             </div>
           )}
         </div>
