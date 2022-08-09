@@ -2,6 +2,7 @@ import Countries from "../../data.json";
 import BackLight from "../../public/backLight.svg";
 import BackDark from "../../public/backDark.svg";
 import { addThoudsandSeparator } from "../utils";
+import { useEffect } from "react";
 
 const CountryDetail = ({
   country,
@@ -56,6 +57,12 @@ const CountryDetail = ({
       </div>
     ));
   };
+
+  useEffect(() => {
+    //@ts-ignore
+    document.getElementById("favicon")?.text(country.flag);
+    console.log(country.flag);
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row justify-center md:justify-start md:space-x-20 mt-[80px]">
