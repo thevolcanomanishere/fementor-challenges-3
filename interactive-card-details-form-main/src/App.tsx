@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BgDesktopGradient from "../public/bg-main-desktop.png";
+import BgMobileGradient from "../public/bg-main-mobile.png";
 import CardFront from "../public/bg-card-front.png";
 import CardBack from "../public/bg-card-back.png";
 
@@ -15,13 +16,15 @@ const App = () => {
   console.log(formData);
 
   const handleCardDisplay = () => {
-    const rawText = [...formData?.cardNumber.split(" ").join("")]; // Remove old space
-    let creditCard = []; // Create card as array
+    const rawText = [...formData?.cardNumber.split(" ").join("")];
+    //@ts-ignore
+    let creditCard = [];
     rawText.forEach((t, i) => {
-      if (i % 4 === 0) creditCard.push(" "); // Add space
+      if (i % 4 === 0) creditCard.push(" ");
       creditCard.push(t);
     });
-    return creditCard.join(""); // Transform card array to string
+    //@ts-ignore
+    return creditCard.join("");
   };
 
   useEffect(() => {
@@ -37,8 +40,13 @@ const App = () => {
 
   return (
     <main className="flex justify-center items-center h-screen overflow-hidden">
-      <div className="flex flex-row w-full h-full relative">
-        <img className="h-full" src={BgDesktopGradient} alt="" />
+      <div className="flex flex-col lg:flex-row w-full h-full relative">
+        <img
+          className="h-full hidden lg:block"
+          src={BgDesktopGradient}
+          alt=""
+        />
+        <img className="h-1/3 lg:hidden" src={BgMobileGradient} alt="" />
         <div className="absolute top-[20%] left-[8%]">
           <div className="relative">
             <img className="" src={CardFront} alt="" />
@@ -49,14 +57,22 @@ const App = () => {
               {formData.name}
             </span>
             <span className="absolute bottom-6 right-6 text-white text-lg uppercase">
-              {formData.cvv}
+              {formData.expirationDate}
             </span>
             <div className="absolute top-6 left-6 rounded-full h-12 w-12 bg-white" />
             <div className="absolute top-[36px] left-20 rounded-full h-6 w-6 border border-white" />
           </div>
         </div>
 
-        <img className="absolute  top-[50%] left-[15%]" src={CardBack} alt="" />
+        <div className="absolute  top-[50%] left-[15%]">
+          <div className="relative">
+            <img className="" src={CardBack} alt="" />
+            <span className="absolute top-[107px] right-12 text-white text-lg uppercase">
+              {formData.cvv}
+            </span>
+          </div>
+        </div>
+
         <div className="m-auto">
           <div className="flex flex-col z-10 max-w-[400px]">
             <div className="flex flex-col">
