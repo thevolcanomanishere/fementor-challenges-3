@@ -15,8 +15,15 @@ module.exports = {
         "lift-off":
           "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300",
         wiggle: "wiggle 3s ease-in-out infinite",
+        flip: "flip 2s ease-in-out 3",
       },
       keyframes: {
+        flip: {
+          "0%,80%": {
+            transform: "rotateY(360deg)",
+            "animation-delay": "calc(.2s * var(--i))",
+          },
+        },
         wiggle: {
           "0%, 100%": {
             transform: "rotate(-1deg)",
