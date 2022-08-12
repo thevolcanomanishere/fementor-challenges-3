@@ -16,6 +16,8 @@ module.exports = {
           "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300",
         wiggle: "wiggle 3s ease-in-out infinite",
         flip: "flip 2s ease-in-out 3",
+        fadeOut: "fadeOut 2s ease-in",
+        fadeIn: "fadeIn 1s ease-in",
       },
       keyframes: {
         flip: {
@@ -34,6 +36,28 @@ module.exports = {
           "50%": {
             transform: "rotate(1deg)",
             // "-webkit-backface-visibility": "hidden",
+            "-webkit-background-clip": "content-box",
+          },
+        },
+        fadeOut: {
+          "0%": {
+            opacity: 1,
+
+            "-webkit-background-clip": "content-box",
+          },
+          "100%": {
+            opacity: 0,
+            "-webkit-background-clip": "content-box",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: 0,
+
+            "-webkit-background-clip": "content-box",
+          },
+          "100%": {
+            opacity: 1,
             "-webkit-background-clip": "content-box",
           },
         },
