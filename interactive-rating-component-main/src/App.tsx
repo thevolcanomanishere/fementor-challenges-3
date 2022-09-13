@@ -27,10 +27,10 @@ const App = () => {
             Please let us know how we did with your support request. All
             feedback is appreciated to help us improve our offering!
           </p>
-          <div className="flex flex-row items-center justify-between w-full h-12 my-24 align-middle">
+          <div className="flex flex-row items-center justify-between w-full h-12 my-24 align-middle select-none">
             {[1, 2, 3, 4, 5].map((rating) => {
               const baseStyle =
-                "flex h-12 w-12 delay-50 transition-colors hover:bg-[#FB7413] hover:text-white rounded-full cursor-pointer";
+                "flex h-12 w-12 delay-50 transition-colors hover:bg-[#FB7413] hover:text-white rounded-full cursor-pointer select-none";
               if (selected === rating) {
                 return (
                   <div

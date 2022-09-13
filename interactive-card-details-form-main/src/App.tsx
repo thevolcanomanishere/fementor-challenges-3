@@ -20,6 +20,8 @@ const App = () => {
   const [showNameIsEmpty, setShowNameIsEmpty] = useState(false);
   const [showCardIsEmpty, setShowCardIsEmpty] = useState(false);
   const [showYearIsEmpty, setShowYearIsEmpty] = useState(false);
+  const [liftOffFrontStyle, setLiftOffFrontStyle] = useState(false);
+
   const startOfCardNumber = creditCardNumber.slice(
     0,
     creditCardNumber.length - 1
@@ -139,10 +141,18 @@ const App = () => {
           alt=""
         />
         <img className="h-1/3 lg:hidden" src={BgMobileGradient} alt="" />
-        <div className="absolute top-[20%] left-[8%]">
+        <div className="absolute w-[75%] top-[20%] left-[5%] lg:top-[20%] lg:left-[8%] z-10">
           <div className="relative">
-            <img className="animate" src={CardFront} alt="" />
-            <div className="flex flex-row items-center absolute top-36 left-6">
+            <img
+              className={
+                liftOffFrontStyle
+                  ? `transition ease-in-out delay-150 -translate-y-1 scale-110 duration-300 transform-gpu`
+                  : "transition ease-in-out delay-150 -translate-y-1 scale-100 duration-300 transform-gpu"
+              }
+              src={CardFront}
+              alt=""
+            />
+            <div className="flex flex-row items-center absolute top-24 lg:top-36 left-6">
               {creditCardNumber
                 .split("")
                 .filter((c) => c != " ")
@@ -159,9 +169,15 @@ const App = () => {
                     leaveTo="opacity-0 scale-95 "
                   >
                     <span
-                      className={`text-3xl tracking-widest text-white ${
-                        (i + 1) % 4 === 0 ? "mr-2" : ""
-                      }`}
+                      className={
+                        liftOffFrontStyle
+                          ? `text-xl lg:text-3xl tracking-widest text-white transition ease-in-out delay-150 -translate-y-1 lg:-translate-y-3 -translate-x-6 lg:-translate-x-3  scale-110 duration-300 ${
+                              (i + 1) % 4 === 0 ? "mr-2" : ""
+                            }`
+                          : `text-xl lg:text-3xl tracking-widest text-white transition ease-in-out delay-150 -translate-y-1 lg:-translate-y-1 -translate-x-2 scale-100 duration-300 ${
+                              (i + 1) % 4 === 0 ? "mr-2" : ""
+                            }`
+                      }
                     >
                       {c}
                     </span>
@@ -169,7 +185,14 @@ const App = () => {
                 ))}
             </div>
 
-            <span className="absolute text-lg text-white uppercase bottom-6 left-6">
+            {/* <span className="absolute text-lg text-white uppercase bottom-6 left-6"> */}
+            <span
+              className={
+                liftOffFrontStyle
+                  ? `absolute text-lg text-white uppercase bottom-1 lg:bottom-4 left-4 lg:left-6 transition ease-in-out delay-150 -translate-y-2 -translate-x-3 scale-110 duration-300`
+                  : `absolute text-lg text-white uppercase bottom-1 lg:bottom-4 left-4 lg:left-6 transition ease-in-out delay-150 -translate-y-1 scale-100 duration-300`
+              }
+            >
               {formData.name}
             </span>
             <span className="absolute text-lg text-white uppercase bottom-6 right-6">
@@ -177,12 +200,24 @@ const App = () => {
               {formData.expirationDateMonth && <span>/</span>}
               {formData.expirationDateYear}
             </span>
-            <div className="absolute w-12 h-12 bg-white rounded-full top-6 left-6" />
-            <div className="absolute top-[36px] left-[88px] rounded-full h-6 w-6 border border-white" />
+            <div
+              className={
+                liftOffFrontStyle
+                  ? `absolute w-12 h-12 bg-white rounded-full top-6 left-6 transition ease-in-out delay-150 -translate-y-4 -translate-x-4 scale-110 duration-300`
+                  : `absolute w-12 h-12 bg-white rounded-full top-6 left-6 transition ease-in-out delay-150 -translate-y-1 scale-100 duration-300`
+              }
+            />
+            <div
+              className={
+                liftOffFrontStyle
+                  ? `absolute top-[36px] left-[88px] rounded-full h-6 w-6 border border-white  transition ease-in-out delay-150 -translate-y-4 -translate-x-3  scale-110 duration-300`
+                  : `absolute top-[36px] left-[88px] rounded-full h-6 w-6 border border-white transition ease-in-out delay-150 -translate-y-1 scale-100 duration-300`
+              }
+            />
           </div>
         </div>
 
-        <div className="absolute  top-[50%] left-[15%]">
+        <div className="absolute w-[75%] top-[9%] right-[5%] lg:top-[50%] lg:left-[15%]">
           <div className="relative">
             <img className="" src={CardBack} alt="" />
             <span className="absolute top-[107px] right-12 text-white text-lg uppercase">
@@ -191,7 +226,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="m-auto">
+        <div className="p-5 mt-16 lg:m-auto">
           <div className="flex flex-col z-10 max-w-[400px]">
             <div className="flex flex-col">
               <label className="mb-2 uppercase" htmlFor="name">
@@ -202,6 +237,8 @@ const App = () => {
                 name="name"
                 type="text"
                 onChange={handleFormChange}
+                onFocus={() => setLiftOffFrontStyle(true)}
+                onBlur={() => setLiftOffFrontStyle(false)}
               />
               {showNameValidation ? (
                 nameValid ? (
@@ -228,6 +265,8 @@ const App = () => {
                 onChange={handleFormChange}
                 value={handleCardDisplay()}
                 maxLength={20}
+                onFocus={() => setLiftOffFrontStyle(true)}
+                onBlur={() => setLiftOffFrontStyle(false)}
               />
               {renderCreditCardValidation()}
             </div>

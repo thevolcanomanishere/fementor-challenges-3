@@ -34,4 +34,8 @@ _Tech_: React, Tailwind, Vite
 
 6. <a href="https://rest-countries-api-mu-mauve.vercel.app/" target="_blank">REST Countries API</a>
 
-![Order](/screenshots/rest.jpg)
+![Rest](/screenshots/rest.jpg)
+
+7. <a href="https://rating-component-pied-gamma.vercel.app/" target="_blank">Simple Rating component</a>
+
+![Order](/screenshots/rating-component.jpg)
